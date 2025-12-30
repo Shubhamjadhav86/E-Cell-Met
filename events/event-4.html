@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MET Illuminate | E-Cell MET</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Supplementary styles for the report sections */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .outcome-card h4 {
+            margin-top: 0;
+            color: #ff1744;
+        }
+
+        .doc-footer-signature {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            color: #aaa;
+        }
+
+        /* Image count notification badge */
+        .gallery-main {
+            position: relative;`r`n            overflow: visible !important;`r`n        }
+
+        .image-count-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ff1744;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(255, 23, 68, 0.4);
+            cursor: pointer;
+            z-index: 20;`r`n            pointer-events: auto;`r`n            opacity: 1 !important;        /* CRITICAL: ensure visibility */`r`n            width: max-content;           /* prevent stretching */`r`n            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            user-select: none;
+        }
+
+        .image-count-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(255, 23, 68, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .image-count-badge {
+                top: 8px;
+                right: 8px;
+                font-size: 0.75rem;`r`n                padding: 3px 6px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-bg text-white">
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="container doc-wrapper major-event-gallery">
+        <header class="doc-header">
+            <div class="doc-breadcrumbs">
+                <a href="../index.html" class="text-gray hover:text-white">Home</a> /
+                <a href="../index.html#events" class="text-gray hover:text-white">Events</a> /
+                <span class="text-primary">MET Illuminate</span>
+            </div>
+            <h1 class="doc-title">MET Illuminate Workshop</h1>
+            <div class="doc-meta">
+                <span>CREATING JOB CREATORS</span>
+                <span>•</span>
+                <span>ENTREPRENEURSHIP SEMINAR</span>
+            </div>
+        </header>
+
+        <div class="doc-grid">
+            <aside class="doc-gallery">
+                <div class="gallery-main">
+                    <img id="main-image" src="../assets/illuminate-main.jpg" alt="MET Illuminate Workshop">
+                    <div class="image-count-badge" id="image-count-badge" style="display: none;">+0</div>
+                </div>
+                <div class="gallery-thumbs" id="thumbnail-container">
+                </div>
+            </aside>
+
+            <main class="doc-content">
+                <h3>Executive Summary</h3>
+                <p>
+                    On <strong>November 26, 2025</strong>, the Entrepreneurship Cell (E-Cell) organized the <strong>"MET
+                        Illuminate Workshop,"</strong> a high-impact seminar designed to catalyze the entrepreneurial
+                    spirit. The workshop moved students away from conventional employment mindsets toward independent
+                    venture creation.
+                </p>
+
+                <h3>Keynote: The 48-Hour Startup Framework</h3>
+                <p>
+                    Delivered by Leadership Coach <strong>Mr. Amiit Dabke</strong>, the session transitioned from
+                    leadership psychology to a rapid-execution business framework.
+                </p>
+
+
+
+                <ul>
+                    <li><strong>The Leadership Mindset:</strong> Strategies for reframing failure as "iterative
+                        learning" and mastering self-leadership.</li>
+                    <li><strong>Value Proposition:</strong> Identifying specific market pain points.</li>
+                    <li><strong>Lean Operations:</strong> Starting small to minimize financial risk and building a
+                        Minimum Viable Product (MVP).</li>
+                </ul>
+
+                <h3>The "Illuminate" Starter Kits</h3>
+                <p>
+                    To ensure lasting impact, E-Cell distributed specialized <strong>Starter Kits</strong> containing:
+                </p>
+                <ul>
+                    <li><strong>The Illuminate Guidebook:</strong> A manual containing the frameworks discussed.</li>
+                    <li><strong>Planning Tools:</strong> Checklists and templates for initial business goal setting.
+                    </li>
+                    <li><strong>Branded Merchandise:</strong> High-quality gear to maintain community identity.</li>
+                </ul>
+
+                <h3>Impact Analysis</h3>
+                <div class="outcomes-grid">
+                    <div class="outcome-card">
+                        <h4>50+</h4>
+                        <p>Student Participants from various departments.</p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>Mindset Shift</h4>
+                        <p>Transitioned from salary-dependence to risk-reward models.</p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>Validated</h4>
+                        <p>Practical roadmap provided for immediate startup registration.</p>
+                    </div>
+                </div>
+
+                <div class="doc-footer-signature">
+                    <div><strong>Verified By:</strong><br>Prof. Umesh Pathak (TPO / Coordinator)</div>
+                    <div><strong>Approved By:</strong><br>Dr. Rajendra Narkhede (Principal)</div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="gallery-modal" id="event-lightbox">
+        <button class="modal-close" id="lightbox-close">&times;</button>
+        <button class="modal-prev" id="lightbox-prev">&#10094;</button>
+        <div class="modal-img-container">
+            <img src="" alt="Event Image" id="lightbox-img">
+        </div>
+        <button class="modal-next" id="lightbox-next">&#10095;</button>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        const eventsData = [{
+            id: '4',
+            title: 'MET Illuminate Workshop',
+            date: 'November 26, 2025',
+            images: [
+                'assets/illuminate-main.jpg',
+                'assets/illuminate-1.jpg',
+                'assets/illuminate-2.jpg',
+                'assets/illuminate-3.jpg'
+            ]
+        }];
+    </script>
+
+    <script>
+        // Load Layout Components
+        const loadComponent = (id, path) => {
+            fetch(path).then(res => res.text()).then(html => {
+                document.getElementById(id).innerHTML = html;
+            });
+        };
+        loadComponent('navbar-placeholder', '../components/navbar.html');
+        loadComponent('footer-placeholder', '../components/footer.html');
+
+        // Gallery & Lightbox Logic
+        const currentEvent = eventsData.find(e => e.id === '4');
+        if (currentEvent) {
+            const thumbContainer = document.getElementById('thumbnail-container');
+            const mainImg = document.getElementById('main-image');
+
+            currentEvent.images.forEach((img, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'thumb-item' + (index === 0 ? ' active' : '');
+                const imgPath = img.startsWith('../') ? img : '../' + img;
+                thumb.innerHTML = `<img src="${imgPath}" alt="Workshop Image ${index + 1}">`;
+
+                thumb.addEventListener('click', () => {
+                    mainImg.src = imgPath;
+                    document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+                thumbContainer.appendChild(thumb);
+            });
+
+            // Lightbox functionality code remains as per your original logic
+            const lightbox = document.getElementById('event-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            mainImg.onclick = () => {
+                lightboxImg.src = mainImg.src;
+                lightbox.style.display = 'flex';
+                lightbox.classList.add('open');
+            };
+            document.getElementById('lightbox-close').onclick = () => {
+                lightbox.classList.remove('open');
+                setTimeout(() => { lightbox.style.display = 'none'; }, 300);
+            };
+
+            // Image count badge logic
+            if (currentEvent && currentEvent.images && currentEvent.images.length > 1) {
+                const badge = document.getElementById('image-count-badge');
+                const totalImages = currentEvent.images.length;
+                badge.textContent = `+${totalImages - 1}`;
+                badge.style.display = 'block';
+
+                // Make badge clickable to open gallery
+                badge.onclick = () => {
+                    lightboxImg.src = mainImg.src;
+                    lightbox.style.display = 'flex';
+                    lightbox.classList.add('open');
+                };
+            }
+        }
+    </script>
+</body>
+
+</html>
+

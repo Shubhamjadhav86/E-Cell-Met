@@ -1,0 +1,26 @@
+/* Lottie Success Animation Overlay */
+.success-lottie-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.success-lottie-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#lottieAnimation {
+    width: 300px;
+    height: 300px;
+}

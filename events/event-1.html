@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEC Achievement | E-Cell MET</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Image count notification badge */
+        .gallery-main {
+            position: relative;
+            overflow: visible !important;
+        }
+
+        .image-count-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            left: auto !important;
+            background: #ff1744;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(255, 23, 68, 0.4);
+            cursor: pointer;
+            z-index: 20;
+            pointer-events: auto;
+            opacity: 1 !important;
+            width: max-content;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            user-select: none;
+        }
+
+        .image-count-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(255, 23, 68, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .image-count-badge {
+                top: 8px;
+                right: 8px;
+                font-size: 0.75rem;
+                padding: 3px 6px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-bg text-white">
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="container doc-wrapper major-event-gallery">
+        <header class="doc-header">
+            <div class="doc-breadcrumbs">
+                <a href="../index.html" class="text-gray hover:text-white">Home</a> /
+                <a href="../index.html#events" class="text-gray hover:text-white">Events</a> /
+                <span class="text-primary">NEC AIR-05</span>
+            </div>
+            <h1 class="doc-title">National Entrepreneurship Challenge (NEC)</h1>
+            <div class="doc-meta">
+                <span>ALL INDIA RANK 05</span>
+                <span>•</span>
+                <span>IIT BOMBAY E-SUMMIT '24</span>
+            </div>
+        </header>
+
+        <div class="doc-grid">
+            <aside class="doc-gallery">
+                <div class="gallery-main">
+                    <img id="main-image" src="../assets/nec-victory.jpg" alt="NEC Achievement IIT Bombay">
+                    <div class="image-count-badge" id="image-count-badge" style="display: none;">+0</div>
+                </div>
+
+                <div class="gallery-thumbs" id="thumbnail-container">
+                </div>
+            </aside>
+
+            <main class="doc-content">
+                <h3>Executive Summary</h3>
+                <p>
+                    MET’S Institute of Technology's E-Cell successfully secured <strong>All India Rank 05
+                        (AIR-05)</strong> at the National Entrepreneurship Challenge, hosted during the E-Summit ‘24 at
+                    <strong>IIT Bombay</strong>. This prestigious achievement underscores the institute’s emerging
+                    status as a hub for innovation and leadership.
+                </p>
+
+                <h3>Departmental Strategy</h3>
+                <p>
+                    The success was driven by a structured corporate model consisting of four specialized departments:
+                </p>
+                <ul>
+                    <li><strong>Operations:</strong> Managed internal timelines and 100% accurate documentation.</li>
+                    <li><strong>Events:</strong> Conducted 20+ on-campus workshops and ideation sessions.</li>
+                    <li><strong>Design:</strong> Created the professional NEC Portfolio and visual brand identity.</li>
+                    <li><strong>Marketing:</strong> Maximized the digital footprint and official Instagram presence.
+                    </li>
+                </ul>
+
+                <h3>Key Achievement Highlights</h3>
+                <ul>
+                    <li>Official recognition as a <strong>"Top 5 Entrepreneurial Campus"</strong> in India.</li>
+                    <li>Successful execution of the "MET’S Model of Collaborative Excellence."</li>
+                    <li>Represented by a 13-member student delegation at the IIT Bombay Grand Finale.</li>
+                    <li>Significant boost in institutional brand equity among industry leaders.</li>
+                </ul>
+
+                <h3>Event Specifications</h3>
+                <p>
+                    <strong>Date of Finale:</strong> February 09, 2024<br>
+                    <strong>Organizing Authority:</strong> E-Cell, IIT Bombay<br>
+                    <strong>Venue:</strong> IIT Bombay Campus, Mumbai<br>
+                    <strong>Ref No:</strong> MET/EC/2024/01<br>
+                    <strong>Leadership:</strong> Dr. Rajendra Narkhede (Principal), Prof. Umesh Pathak, Prof. Arun Dalvi
+                </p>
+            </main>
+        </div>
+    </div>
+
+    <div class="gallery-modal" id="event-lightbox">
+        <button class="modal-close" id="lightbox-close">&times;</button>
+        <button class="modal-prev" id="lightbox-prev">&#10094;</button>
+        <div class="modal-img-container">
+            <img src="" alt="Event Image" id="lightbox-img">
+        </div>
+        <button class="modal-next" id="lightbox-next">&#10095;</button>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load Navbar
+        fetch('../components/navbar.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+
+                const hamburgerBtn = document.querySelector('.hamburger-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const closeBtn = document.getElementById('mobile-menu-close');
+                const links = document.querySelectorAll('.mobile-nav-link');
+
+                if (hamburgerBtn) hamburgerBtn.addEventListener('click', () => {
+                    hamburgerBtn.classList.toggle('active');
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                if (closeBtn) closeBtn.addEventListener('click', () => {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+
+                if (mobileMenu) mobileMenu.addEventListener('click', (e) => {
+                    if (e.target === mobileMenu) {
+                        hamburgerBtn.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                links.forEach(link => link.addEventListener('click', () => {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }));
+            });
+
+        // Load Footer
+        fetch('../components/footer.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+    </script>
+
+    <script src="../data/eventsData.js"></script>
+    <script>
+        // Adjust the ID search to match whatever ID you assign to NEC in your eventsData.js
+        const currentEvent = eventsData.find(e => e.id === 'nec-2024') || eventsData[0];
+
+        if (currentEvent) {
+            const thumbContainer = document.getElementById('thumbnail-container');
+            if (currentEvent.images && currentEvent.images.length > 0) {
+                document.getElementById('main-image').src = '../' + currentEvent.images[0];
+
+                currentEvent.images.forEach((img, index) => {
+                    const thumb = document.createElement('div');
+                    thumb.className = 'thumb-item' + (index === 0 ? ' active' : '');
+                    const imgPath = img.startsWith('http') || img.startsWith('../') ? img : '../' + img;
+                    thumb.innerHTML = `<img src="${imgPath}" alt="Image ${index + 1}">`;
+                    thumb.addEventListener('click', () => {
+                        document.getElementById('main-image').src = imgPath;
+                        document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                    });
+                    thumbContainer.appendChild(thumb);
+                });
+            }
+
+            let currentImageIndex = 0;
+            const lightbox = document.getElementById('event-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+
+            function openLightbox(index) {
+                if (!currentEvent.images || currentEvent.images.length === 0) return;
+                currentImageIndex = index;
+                const img = currentEvent.images[index];
+                const imgPath = img.startsWith('http') || img.startsWith('../') ? img : '../' + img;
+                lightboxImg.src = imgPath;
+                lightbox.style.display = 'flex';
+                lightbox.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('open');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                }, 300);
+                document.body.style.overflow = '';
+            }
+
+            function navigateLightbox(direction) {
+                if (!currentEvent.images) return;
+                currentImageIndex += direction;
+                if (currentImageIndex < 0) currentImageIndex = currentEvent.images.length - 1;
+                if (currentImageIndex >= currentEvent.images.length) currentImageIndex = 0;
+                const img = currentEvent.images[currentImageIndex];
+                const imgPath = img.startsWith('http') || img.startsWith('../') ? img : '../' + img;
+                lightboxImg.src = imgPath;
+            }
+
+            // Image count badge logic
+            if (currentEvent && currentEvent.images && currentEvent.images.length > 1) {
+                const badge = document.getElementById('image-count-badge');
+                const totalImages = currentEvent.images.length;
+                badge.textContent = `+${totalImages - 1}`;
+                badge.style.display = 'block';
+
+                // Make badge clickable to open gallery
+                badge.addEventListener('click', () => openLightbox(0));
+            }
+
+            document.getElementById('main-image').addEventListener('click', () => openLightbox(0));
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-prev').addEventListener('click', () => navigateLightbox(-1));
+            document.getElementById('lightbox-next').addEventListener('click', () => navigateLightbox(1));
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (lightbox.style.display === 'flex') {
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                    if (e.key === 'ArrowRight') navigateLightbox(1);
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

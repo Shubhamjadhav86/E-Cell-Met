@@ -1,0 +1,44 @@
+/* Icon Hover Effects - Gmail and LinkedIn */
+.linkedin-icon {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    filter: drop-shadow(0 0 0 transparent);
+}
+
+.linkedin-icon:hover {
+    opacity: 1 !important;
+    transform: scale(1.3) rotate(10deg);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.7));
+    animation: icon-pulse 1s ease-in-out infinite;
+}
+
+@keyframes icon-pulse {
+
+    0%,
+    100% {
+        transform: scale(1.3) rotate(10deg);
+    }
+
+    50% {
+        transform: scale(1.4) rotate(15deg);
+    }
+}
+
+/* Gmail Icon specific hover */
+a[href^="mailto:"] .linkedin-icon:hover {
+    transform: scale(1.3) rotate(-10deg);
+    filter: drop-shadow(0 0 8px rgba(255, 23, 68, 0.7));
+    animation: icon-pulse-email 1s ease-in-out infinite;
+}
+
+@keyframes icon-pulse-email {
+
+    0%,
+    100% {
+        transform: scale(1.3) rotate(-10deg);
+    }
+
+    50% {
+        transform: scale(1.4) rotate(-15deg);
+    }
+}

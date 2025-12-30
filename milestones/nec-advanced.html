@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEC Advanced Winner | Milestones</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-bg text-white">
+
+    <nav class="nav-wrapper">
+        <div class="nav-card glass-panel">
+            <a href="../index.html" class="nav-logo">
+                <span class="text-xl font-bold">E-Cell<span class="text-primary">MET</span></span>
+            </a>
+            <div class="nav-links md-flex hidden-mobile">
+                <a href="../index.html#home">Home <span></span></a>
+                <a href="../index.html#events">Events <span></span></a>
+                <a href="../tec.html">TEC <span></span></a>
+                <a href="../index.html#startup-registration">Startup Registration <span></span></a>
+                <a href="../index.html#team">Team <span></span></a>
+                <a href="../index.html#contact">Contact <span></span></a>
+            </div>
+
+            <button class="hamburger-btn md-hidden" id="hamburger-menu" aria-label="Menu">
+                <div class="hamburger-icon">
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="mobile-close-btn" id="mobile-menu-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="../index.html#home" class="mobile-nav-link">Home</a>
+            <a href="../index.html#events" class="mobile-nav-link">Events</a>
+            <a href="../tec.html" class="mobile-nav-link">TEC</a>
+            <a href="../index.html#startup-registration" class="mobile-nav-link">Startup Registration</a>
+            <a href="../index.html#team" class="mobile-nav-link">Team</a>
+            <a href="../index.html#contact" class="mobile-nav-link">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger Menu Initialization
+        (function () {
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = document.getElementById('mobile-menu-close');
+            const links = document.querySelectorAll('.mobile-nav-link');
+
+            if (hamburgerBtn) hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            if (closeBtn) closeBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            if (mobileMenu) mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            links.forEach(link => link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }));
+        })();
+    </script>
+
+    <div class="container doc-wrapper">
+        <header class="doc-header">
+            <div class="doc-breadcrumbs">
+                <a href="../index.html" class="text-gray hover:text-white">Home</a> /
+                <span class="text-primary">Milestones</span>
+            </div>
+            <h1 class="doc-title">All India 1st Rank</h1>
+            <div class="doc-meta">
+                <span>IIT BOMBAY</span>
+                <span>•</span>
+                <span>ADVANCED TRACK</span>
+            </div>
+        </header>
+
+        <div class="doc-grid">
+            <aside class="doc-gallery">
+                <div class="gallery-main">
+                    <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=800&auto=format&fit=crop"
+                        alt="NEC Advanced Winner">
+                </div>
+                <div class="gallery-thumbs">
+                    <div class="thumb-item active">
+                        <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=800&auto=format&fit=crop"
+                            alt="Thumb 1">
+                    </div>
+                    <div class="thumb-more">+4</div>
+                </div>
+            </aside>
+
+            <main class="doc-content">
+                <h3>The Champion Moment</h3>
+                <p>
+                    Following our success in the Basic Track, we aimed higher. In the subsequent year, E-Cell MET
+                    participated in the
+                    NEC Advanced Track at IIT Bombay and emerged as the **All India Rank 1 Winners**.
+                </p>
+                <p>
+                    This victory cemented our position as a premier entrepreneurship cell in the region.
+                </p>
+
+                <h3>Impact Metrics</h3>
+                <ul>
+                    <li>Hosted 5+ major workshops with industry experts.</li>
+                    <li>Facilitated funding opportunities for 3 campus startups.</li>
+                    <li>Expanded network to 10+ corporate partners.</li>
+                </ul>
+            </main>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal">
+        <button class="modal-close">&times;</button>
+        <button class="modal-prev">&#10094;</button>
+        <div class="modal-img-container">
+            <img src="" alt="Fullscreen Image">
+        </div>
+        <button class="modal-next">&#10095;</button>
+    </div>
+
+    <script src="../js/milestone-gallery.js"></script>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('../components/footer.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+    </script>
+
+</body>
+
+</html>

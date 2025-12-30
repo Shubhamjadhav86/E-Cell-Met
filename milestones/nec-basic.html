@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Western Entrepreneurship Challenge | Milestones</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-bg text-white">
+
+    <nav class="nav-wrapper">
+        <div class="nav-card glass-panel">
+            <a href="../index.html" class="nav-logo">
+                <span class="text-xl font-bold">E-Cell<span class="text-primary">MET</span></span>
+            </a>
+            <div class="nav-links md-flex hidden-mobile">
+                <a href="../index.html#home">Home <span></span></a>
+                <a href="../index.html#events">Events <span></span></a>
+                <a href="../tec.html">TEC <span></span></a>
+                <a href="../index.html#startup-registration">Startup Registration <span></span></a>
+                <a href="../index.html#team">Team <span></span></a>
+                <a href="../index.html#contact">Contact <span></span></a>
+            </div>
+
+            <button class="hamburger-btn md-hidden" id="hamburger-menu" aria-label="Menu">
+                <div class="hamburger-icon">
+                    <span class="hamburger-line"></span>
+                </div>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <button class="mobile-close-btn" id="mobile-menu-close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="../index.html#home" class="mobile-nav-link">Home</a>
+            <a href="../index.html#events" class="mobile-nav-link">Events</a>
+            <a href="../tec.html" class="mobile-nav-link">TEC</a>
+            <a href="../index.html#startup-registration" class="mobile-nav-link">Startup Registration</a>
+            <a href="../index.html#team" class="mobile-nav-link">Team</a>
+            <a href="../index.html#contact" class="mobile-nav-link">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        // Hamburger Menu Initialization
+        (function () {
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = document.getElementById('mobile-menu-close');
+            const links = document.querySelectorAll('.mobile-nav-link');
+
+            if (hamburgerBtn) hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            if (closeBtn) closeBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            if (mobileMenu) mobileMenu.addEventListener('click', (e) => {
+                if (e.target === mobileMenu) {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            links.forEach(link => link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }));
+        })();
+    </script>
+
+    <div class="container doc-wrapper">
+        <header class="doc-header">
+            <div class="doc-breadcrumbs">
+                <a href="../index.html" class="text-gray hover:text-white">Home</a> /
+                <span class="text-primary">Milestones</span>
+            </div>
+            <h1 class="doc-title">1st Runner-Up – WEC</h1>
+            <div class="doc-meta">
+                <span>WEC 2024</span>
+                <span>•</span>
+                <span>REGIONAL ACHIEVEMENT</span>
+            </div>
+        </header>
+
+        <div class="doc-grid">
+
+            <aside class="doc-gallery">
+                <div class="gallery-main">
+                    <!-- MAIN FEATURE IMAGE: Replace this image link -->
+                    <img src="../MilesIMG/wec/w1.JPG" alt="WEC Achievement">
+                </div>
+
+                <div class="gallery-thumbs">
+
+                    <div class="thumb-item active">
+                        <!-- THUMB IMAGE 1 -->
+                        <img src="../MilesIMG/wec/w2.JPG" alt="WEC Event">
+                    </div>
+
+                    <!-- 
+                    ADD MORE THUMB IMAGES IF AVAILABLE
+                    <div class="thumb-item">
+                        <img src="PASTE_IMAGE_LINK_HERE" alt="Team Presentation">
+                    </div>
+                    -->
+
+                    <div class="thumb-more">+1</div>
+                </div>
+            </aside>
+
+            <main class="doc-content">
+
+                <h3>Big Moves at WEC</h3>
+                <p>
+                    What began as late-night brainstorming sessions, intense discussions,
+                    and bold startup pitches evolved into a journey driven by grit, creativity,
+                    and unstoppable passion. Team E-Cell MET BTech transformed ideas into
+                    structured execution through consistent effort and collaboration.
+                </p>
+                <p>
+                    This relentless drive led us to a major milestone—securing the
+                    <strong>1st Runner-Up position</strong> at the Western Entrepreneurship
+                    Challenge (WEC), organized by E-Cell KITCOEK, Kolhapur.
+                </p>
+
+                <h3>From Late Nights to Spotlights</h3>
+                <p>
+                    Competing at WEC was not just about participation—it was about ownership.
+                    Facing high-pressure challenges, our team demonstrated resilience,
+                    teamwork, and clarity of vision, proving our ability to perform on a
+                    competitive regional stage.
+                </p>
+
+                <h3>About Western Entrepreneurship Challenge (WEC)</h3>
+                <p>
+                    The Western Entrepreneurship Challenge is a prestigious two-month
+                    entrepreneurship championship hosted by E-Cell KITCOEK
+                    (Kolhapur Institute of Technology’s College of Engineering).
+                    It is designed to strengthen E-Cells across western India and
+                    empower student innovators.
+                </p>
+
+                <ul>
+                    <li><strong>Structured Growth:</strong> Team building, ideation, execution, and evaluation.</li>
+                    <li><strong>Mentorship:</strong> Guidance from experienced entrepreneurs and industry leaders.</li>
+                    <li><strong>Real-World Simulation:</strong> Challenges testing leadership and resilience.</li>
+                    <li><strong>Networking:</strong> Connections with peers, mentors, and startup communities.</li>
+                    <li><strong>Impact:</strong> A platform to showcase student-led innovation.</li>
+                </ul>
+
+                <h3>Why This Milestone Matters</h3>
+                <p>
+                    For E-Cell MET BTech, WEC served as the perfect arena to validate our ideas,
+                    sharpen execution skills, and demonstrate our capacity to scale impact
+                    beyond campus boundaries.
+                </p>
+
+                <h3>Gratitude & Acknowledgment</h3>
+                <p>
+                    This achievement would not have been possible without the dedication
+                    of our team members, the guidance of mentors, and the constant support
+                    of our community. Every contribution played a vital role in reaching
+                    this milestone.
+                </p>
+
+                <h3>Looking Ahead</h3>
+                <p>
+                    As 1st Runner-Up at WEC, we carry forward lessons, confidence, and
+                    momentum. This milestone strengthens our commitment to building
+                    meaningful initiatives, empowering student founders, and scaling
+                    greater entrepreneurial impact.
+                </p>
+
+                <h3>The Journey Continues</h3>
+                <p>
+                    This achievement is more than a rank—it represents growth, belief,
+                    and the beginning of bigger ambitions. With passion aligned to purpose,
+                    Team E-Cell MET is ready to rise higher and make a lasting mark in the
+                    entrepreneurial ecosystem.
+                </p>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- GALLERY MODAL (DO NOT CHANGE STRUCTURE) -->
+    <div class="gallery-modal">
+        <button class="modal-close">&times;</button>
+        <button class="modal-prev">&#10094;</button>
+        <div class="modal-img-container">
+            <!-- FULLSCREEN IMAGE AUTO LOADS HERE -->
+            <img src="" alt="Fullscreen Image">
+        </div>
+        <button class="modal-next">&#10095;</button>
+    </div>
+
+    <script src="../js/milestone-gallery.js"></script>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        fetch('../components/footer.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+    </script>
+
+</body>
+
+</html>

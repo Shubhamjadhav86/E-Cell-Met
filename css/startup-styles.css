@@ -1,0 +1,382 @@
+/* Success Animation for Form Submission */
+.success-animation {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    display: none;
+}
+
+.success-animation.show {
+    opacity: 1;
+    transform: translateX(0);
+    display: block;
+}
+
+.success-animation.success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+}
+
+.success-animation.error {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Registration Heading Hover Effect */
+.registration-heading-wrapper {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.registration-heading-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35%;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: width 1s ease-in-out;
+}
+
+.registration-heading-wrapper:hover::after {
+    width: 100%;
+}
+
+/* Secondary Button (View Startups) */
+.btn-secondary {
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.025em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--primary-color);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.btn-secondary:hover::before {
+    opacity: 1;
+}
+
+.btn-secondary:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(255, 23, 68, 0.4);
+}
+
+/* Startup Cards Styling - Compact Version */
+.startup-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.startup-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(255, 23, 68, 0.15);
+    border-color: rgba(255, 23, 68, 0.3);
+}
+
+/* Startup Image Container */
+.startup-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+}
+
+.startup-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.startup-image-container:hover .startup-image {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.startup-image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.image-count-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    backdrop-filter: blur(8px);
+}
+
+
+.startup-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.startup-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    flex: 1;
+    line-height: 1.3;
+}
+
+.startup-stage-badge {
+    background: rgba(255, 23, 68, 0.1);
+    color: var(--primary-color);
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.startup-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.startup-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.startup-domain {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-gray-400);
+    font-size: 0.8rem;
+}
+
+.startup-domain svg {
+    color: var(--primary-color);
+}
+
+.startup-date {
+    color: var(--text-gray-500);
+    font-size: 0.7rem;
+}
+
+.startup-description {
+    color: var(--text-gray-300);
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+.startup-description-preview {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.startup-description-full {
+    display: none;
+}
+
+.startup-description-full.show {
+    display: block;
+}
+
+.know-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.25rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.know-more-btn:hover {
+    color: #ff4569;
+    transform: translateX(2px);
+}
+
+.know-more-btn svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.know-more-btn.expanded svg {
+    transform: rotate(180deg);
+}
+
+.startup-link {
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.25rem;
+}
+
+.startup-link:hover {
+    color: #ff4569;
+    transform: translateX(4px);
+}
+
+.startup-card-footer {
+    padding-top: 0.65rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.startup-founder {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-gray-400);
+    font-size: 0.8rem;
+}
+
+.startup-founder svg {
+    color: var(--text-gray-500);
+}
+
+/* Empty State */
+.empty-state,
+.error-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-gray-400);
+}
+
+.empty-state p,
+.error-state p {
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+}
+
+.error-detail {
+    font-size: 0.875rem;
+    color: var(--text-gray-500);
+    margin-top: 0.5rem;
+}
+
+.error-detail code {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    color: var(--primary-color);
+    font-family: monospace;
+}
+
+.btn-primary {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 9999px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #ff4569;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(255, 23, 68, 0.4);
+}
+
+/* Startups Page Heading Hover Effect */
+.startups-heading-wrapper {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.startups-heading-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+.startups-heading-wrapper:hover::after {
+    width: 100%;
+}

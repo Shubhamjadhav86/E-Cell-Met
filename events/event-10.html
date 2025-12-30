@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHXPO 2025 | E-Cell MET</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Custom styles for the Innovation Expo */
+        .prize-pool-card {
+            background: linear-gradient(135deg, #990000, #ff1744);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .prize-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f2c94c;
+            display: block;
+        }
+
+        .trl-funnel {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #ff1744;
+        }
+
+        .award-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .award-item {
+            background: #1a1a1a;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .doc-footer-signature {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            color: #aaa;
+        }
+
+        /* Image count notification badge */
+        .gallery-main {
+            position: relative;`r`n            overflow: visible !important;`r`n        }
+
+        .image-count-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ff1744;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(255, 23, 68, 0.4);
+            cursor: pointer;
+            z-index: 20;`r`n            pointer-events: auto;`r`n            opacity: 1 !important;        /* CRITICAL: ensure visibility */`r`n            width: max-content;           /* prevent stretching */`r`n            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            user-select: none;
+        }
+
+        .image-count-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(255, 23, 68, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .image-count-badge {
+                top: 8px;
+                right: 8px;
+                font-size: 0.75rem;`r`n                padding: 3px 6px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-bg text-white">
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="container doc-wrapper major-event-gallery">
+        <header class="doc-header">
+            <div class="doc-breadcrumbs">
+                <a href="../index.html" class="text-gray hover:text-white">Home</a> /
+                <a href="../index.html#events" class="text-gray hover:text-white">Events</a> /
+                <span class="text-primary">TECHXPO 2025</span>
+            </div>
+            <h1 class="doc-title">IIBHM TECHXPO 2025</h1>
+            <div class="doc-meta">
+                <span>INNOVATION EXPO REPORT</span>
+                <span>•</span>
+                <span>MET AMDC</span>
+            </div>
+        </header>
+
+        <div class="doc-grid">
+            <aside class="doc-gallery">
+                <div class="gallery-main">
+                    <img id="main-image" src="../assets/techxpo-main.jpg" alt="TECHXPO 2025 Innovation Hub">
+                    <div class="image-count-badge" id="image-count-badge" style="display: none;">+0</div>
+                </div>
+                <div class="gallery-thumbs" id="thumbnail-container"></div>
+            </aside>
+
+            <main class="doc-content">
+                <div class="prize-pool-card">
+                    <span class="text-white text-sm uppercase tracking-widest">Total Seed Grant Pool</span>
+                    <span class="prize-value">₹1,50,000+</span>
+                </div>
+
+                <h3>Executive Summary</h3>
+                <p>
+                    On <strong>November 27, 2025</strong>, MET AMDC and IIBHM hosted TECHXPO 2025, a flagship
+                    "Innovation-to-Market" platform. The expo was designed to transform academic research—specifically
+                    Final-Year Projects—into commercially viable startups through industry benchmarking and capital
+                    infusion.
+                </p>
+
+                <h3>Academia-to-Startup Framework</h3>
+                <p>The event focused on the <strong>Technology Readiness Level (TRL)</strong> of each project, guiding
+                    students through a structured validation funnel:</p>
+
+
+
+                <div class="trl-funnel">
+                    <ul>
+                        <li><strong>Research Validation:</strong> Defending technical soundness.</li>
+                        <li><strong>Market Viability:</strong> Identifying pain points addressed by the tech.</li>
+                        <li><strong>MVP Prototyping:</strong> Live demonstrations of working products.</li>
+                        <li><strong>Investor Pitching:</strong> Securing seed grants for commercialization.</li>
+                    </ul>
+                </div>
+
+                <h3>The Investor Jury Round</h3>
+                <p>Promising exhibitors faced a closed-door session led by <strong>Bhavesh Salunke</strong> and
+                    <strong>Samir Shah</strong>. Evaluation focused on Intellectual Property (IP), Cost of Acquisition,
+                    and Multidisciplinary Team Capability.
+                </p>
+
+                <h3>Seed Grants & Awards</h3>
+                <div class="award-grid">
+                    <div class="award-item">
+                        <strong style="color: #f2c94c;">Winner</strong>
+                        <div style="font-size: 1.2rem; margin: 5px 0;">₹1,00,000</div>
+                        <small class="text-gray">Commercial Readiness</small>
+                    </div>
+                    <div class="award-item">
+                        <strong style="color: #ff1744;">Runner Up (x2)</strong>
+                        <div style="font-size: 1.2rem; margin: 5px 0;">₹25,000</div>
+                        <small class="text-gray">Social/Industrial Impact</small>
+                    </div>
+                </div>
+
+                <h3>Impact & Conclusion</h3>
+                <p>
+                    TECHXPO 2025 has successfully shifted the student perception of final-year projects from an academic
+                    requirement to a potential career path. Several teams have already entered post-event mentorship for
+                    patent filing and small-scale manufacturing.
+                </p>
+
+                <div class="doc-footer-signature">
+                    <div><strong>Verified By:</strong><br>Prof. Umesh Pathak (TPO / Coordinator)</div>
+                    <div><strong>Authorized By:</strong><br>Dr. Rajendra Narkhede (Principal)</div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div class="gallery-modal" id="event-lightbox">
+        <button class="modal-close" id="lightbox-close">&times;</button>
+        <button class="modal-prev" id="lightbox-prev">&#10094;</button>
+        <div class="modal-img-container"><img src="" id="lightbox-img"></div>
+        <button class="modal-next" id="lightbox-next">&#10095;</button>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../data/eventsData.js"></script>
+    <script>
+        const currentEvent = eventsData.find(e => e.id === '10');
+
+        const initializePage = () => {
+            fetch('../components/navbar.html').then(r => r.text()).then(h => document.getElementById('navbar-placeholder').innerHTML = h);
+            fetch('../components/footer.html').then(r => r.text()).then(h => document.getElementById('footer-placeholder').innerHTML = h);
+
+            if (currentEvent && currentEvent.images) {
+                const thumbContainer = document.getElementById('thumbnail-container');
+                const mainImg = document.getElementById('main-image');
+
+                currentEvent.images.forEach((img, index) => {
+                    const thumb = document.createElement('div');
+                    thumb.className = 'thumb-item' + (index === 0 ? ' active' : '');
+                    const path = img.startsWith('../') ? img : '../' + img;
+                    thumb.innerHTML = `<img src="${path}" alt="TECHXPO Image ${index + 1}">`;
+                    thumb.onclick = () => {
+                        mainImg.src = path;
+                        document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                    };
+                    thumbContainer.appendChild(thumb);
+                });
+            }
+        };
+
+        const lightbox = document.getElementById('event-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        document.getElementById('main-image').onclick = () => {
+            lightboxImg.src = document.getElementById('main-image').src;
+            lightbox.style.display = 'flex';
+            lightbox.classList.add('open');
+        };
+
+        // Image count badge logic
+        if (currentEvent && currentEvent.images && currentEvent.images.length > 1) {
+            const badge = document.getElementById('image-count-badge');
+            const totalImages = currentEvent.images.length;
+            badge.textContent = `+${totalImages - 1}`;
+            badge.style.display = 'block';
+
+            // Make badge clickable to open gallery
+            badge.onclick = () => {
+                lightboxImg.src = document.getElementById('main-image').src;
+                lightbox.style.display = 'flex';
+                lightbox.classList.add('open');
+            };
+        }
+        document.getElementById('lightbox-close').onclick = () => {
+            lightbox.classList.remove('open');
+            setTimeout(() => { lightbox.style.display = 'none'; }, 300);
+        };
+
+        window.onload = initializePage;
+    </script>
+</body>
+
+</html>
+

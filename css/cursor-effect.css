@@ -1,0 +1,91 @@
+/* Minimal 3-Line Crosshair Cursor */
+.custom-cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show cursor only when hovering team members */
+.team-member:hover~body .custom-cursor,
+body.show-custom-cursor .custom-cursor {
+    opacity: 1;
+}
+
+/* Vertical Line */
+.custom-cursor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1px;
+    height: 20px;
+    background: #FF1744;
+    box-shadow: 0 0 4px rgba(255, 23, 68, 0.6);
+}
+
+/* Horizontal Line */
+.custom-cursor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 1px;
+    background: #FF1744;
+    box-shadow: 0 0 4px rgba(255, 23, 68, 0.6);
+}
+
+/* Center Dot (third line as a dot) */
+.custom-cursor-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 3px;
+    height: 3px;
+    background: #FF1744;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(255, 23, 68, 0.8);
+}
+
+/* Expanding Circle on Click */
+.click-ripple {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 23, 68, 0.3) 0%, rgba(255, 23, 68, 0.15) 50%, transparent 100%);
+    border: 2px solid rgba(255, 23, 68, 0.5);
+    opacity: 1;
+    animation: expandCircle 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Circle Expansion Animation */
+@keyframes expandCircle {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+
+    100% {
+        width: 300vmax;
+        height: 300vmax;
+        opacity: 0;
+    }
+}
+
+/* Hide default cursor ONLY on team members */
+.team-member {
+    cursor: none;
+}
+
+.team-member * {
+    cursor: none !important;
+}

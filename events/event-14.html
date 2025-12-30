@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event 14 | E-Cell MET</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Image count notification badge */
+        .gallery-main {
+            position: relative;
+            overflow: visible !important;
+        }
+
+        .image-count-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            left: auto !important;
+            background: #ff1744;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(255, 23, 68, 0.4);
+            cursor: pointer;
+            z-index: 20;
+            pointer-events: auto;
+            opacity: 1 !important;
+            width: max-content;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            user-select: none;
+        }
+
+        .image-count-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(255, 23, 68, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .image-count-badge {
+                top: 8px;
+                right: 8px;
+                font-size: 0.75rem;
+                padding: 3px 6px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-bg text-white">
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Event Detail Section -->
+    <div class="container doc-wrapper major-event-gallery">
+        <header class="doc-header">
+            <div class="doc-breadcrumbs">
+                <a href="../index.html" class="text-gray hover:text-white">Home</a> /
+                <a href="../index.html#events" class="text-gray hover:text-white">Events</a> /
+                <span class="text-primary">Event 14</span>
+            </div>
+            <h1 class="doc-title">Event 14</h1>
+            <div class="doc-meta">
+                <span>COMING SOON</span>
+                <span>•</span>
+                <span>DEMO EVENT</span>
+            </div>
+        </header>
+
+        <div class="doc-grid">
+            <!-- Gallery Section (Left) -->
+            <aside class="doc-gallery">
+                <div class="gallery-main">
+                    <img id="main-image" src="../assets/pitch-perfect.jpg" alt="Event Image">
+                    <div class="image-count-badge" id="image-count-badge" style="display: none;">+0</div>
+                </div>
+
+                <div class="gallery-thumbs" id="thumbnail-container">
+                    <!-- Thumbnails will be dynamically generated -->
+                </div>
+            </aside>
+
+            <!-- Event Content (Right) -->
+            <main class="doc-content">
+                <h3>About This Event</h3>
+                <p>
+                    This is a demo description for Event 14. This text serves as a placeholder to
+                    demonstrate the layout and design of the event detail page.
+                </p>
+                <p>
+                    Customize this content by editing <code>data/eventsData.js</code>. The detailed text here is
+                    currently static in the HTML template but can be made dynamic or edited per file.
+                </p>
+
+                <h3>Highlights</h3>
+                <ul>
+                    <li>Key feature one for Event 14</li>
+                    <li>Another important highlight</li>
+                    <li>Learning opportunity description</li>
+                    <li>Networking potential</li>
+                </ul>
+
+                <h3>Event Details</h3>
+                <p>
+                    <strong>Date:</strong> Coming Soon<br>
+                    <strong>Time:</strong> TBA<br>
+                    <strong>Venue:</strong> MET Institute of Technology, Nashik<br>
+                    <strong>Registration:</strong> Open Soon
+                </p>
+            </main>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="gallery-modal" id="event-lightbox">
+        <button class="modal-close" id="lightbox-close">&times;</button>
+        <button class="modal-prev" id="lightbox-prev">&#10094;</button>
+        <div class="modal-img-container">
+            <img src="" alt="Event Image" id="lightbox-img">
+        </div>
+        <button class="modal-next" id="lightbox-next">&#10095;</button>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Load Components -->
+    <script>
+        // Load Navbar
+        fetch('../components/navbar.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+
+                // Initialize mobile menu after navbar loads
+                const hamburgerBtn = document.querySelector('.hamburger-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const closeBtn = document.getElementById('mobile-menu-close');
+                const links = document.querySelectorAll('.mobile-nav-link');
+
+                if (hamburgerBtn) hamburgerBtn.addEventListener('click', () => {
+                    hamburgerBtn.classList.toggle('active');
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                if (closeBtn) closeBtn.addEventListener('click', () => {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+
+                if (mobileMenu) mobileMenu.addEventListener('click', (e) => {
+                    if (e.target === mobileMenu) {
+                        hamburgerBtn.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                links.forEach(link => link.addEventListener('click', () => {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }));
+            });
+
+        // Load Footer
+        fetch('../components/footer.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+    </script>
+
+    <!-- Event-specific Data and Gallery -->
+    <script src="../data/eventsData.js"></script>
+    <script>
+        // Find current event data
+        const currentEvent = eventsData.find(e => e.id === '14');
+
+        if (currentEvent) {
+            // Generate thumbnails
+            const thumbContainer = document.getElementById('thumbnail-container');
+            if (currentEvent.images && currentEvent.images.length > 0) {
+                // Update main image if available
+                document.getElementById('main-image').src = '../' + currentEvent.images[0];
+
+                currentEvent.images.forEach((img, index) => {
+                    const thumb = document.createElement('div');
+                    thumb.className = 'thumb-item' + (index === 0 ? ' active' : '');
+                    // Fix path if it's relative
+                    const imgPath = img.startsWith('http') || img.startsWith('../') ? img : '../' + img;
+                    thumb.innerHTML = `<img src="${imgPath}" alt="Image ${index + 1}">`;
+                    thumb.addEventListener('click', () => {
+                        document.getElementById('main-image').src = imgPath;
+                        document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+                        thumb.classList.add('active');
+                    });
+                    thumbContainer.appendChild(thumb);
+                });
+            }
+
+            // Lightbox functionality
+            let currentImageIndex = 0;
+            const lightbox = document.getElementById('event-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+
+            function openLightbox(index) {
+                if (!currentEvent.images || currentEvent.images.length === 0) return;
+                currentImageIndex = index;
+                const img = currentEvent.images[index];
+                const imgPath = img.startsWith('http') || img.startsWith('../') ? img : '../' + img;
+                lightboxImg.src = imgPath;
+                lightbox.style.display = 'flex';
+                lightbox.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('open');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                }, 300);
+                document.body.style.overflow = '';
+            }
+
+            function navigateLightbox(direction) {
+                if (!currentEvent.images) return;
+                currentImageIndex += direction;
+                if (currentImageIndex < 0) currentImageIndex = currentEvent.images.length - 1;
+                if (currentImageIndex >= currentEvent.images.length) currentImageIndex = 0;
+                const img = currentEvent.images[currentImageIndex];
+                const imgPath = img.startsWith('http') || img.startsWith('../') ? img : '../' + img;
+                lightboxImg.src = imgPath;
+            }
+
+            // Open lightbox on main image click
+            document.getElementById('main-image').addEventListener('click', () => openLightbox(0));
+
+            // Lightbox controls
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-prev').addEventListener('click', () => navigateLightbox(-1));
+            document.getElementById('lightbox-next').addEventListener('click', () => navigateLightbox(1));
+
+            // Close on background click
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (lightbox.style.display === 'flex') {
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                    if (e.key === 'ArrowRight') navigateLightbox(1);
+                }
+            });
+
+            // Image count badge logic
+            if (currentEvent && currentEvent.images && currentEvent.images.length > 1) {
+                const badge = document.getElementById('image-count-badge');
+                const totalImages = currentEvent.images.length;
+                badge.textContent = `+${totalImages - 1}`;
+                badge.style.display = 'block';
+
+                // Make badge clickable to open gallery
+                badge.addEventListener('click', () => openLightbox(0));
+            }
+        }
+    </script>
+
+</body>
+
+</html>

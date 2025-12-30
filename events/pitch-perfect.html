@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitch Perfect | E-Cell MET</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-bg text-white">
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Event Detail Section -->
+    <div class="container doc-wrapper">
+        <header class="doc-header">
+            <div class="doc-breadcrumbs">
+                <a href="../index.html" class="text-gray hover:text-white">Home</a> /
+                <a href="../index.html#events" class="text-gray hover:text-white">Events</a> /
+                <span class="text-primary">Pitch Perfect</span>
+            </div>
+            <h1 class="doc-title">Pitch Perfect</h1>
+            <div class="doc-meta">
+                <span>15 JAN 2025</span>
+                <span>•</span>
+                <span>STARTUP PITCH WORKSHOP</span>
+            </div>
+        </header>
+
+        <div class="doc-grid">
+            <!-- Gallery Section (Left) -->
+            <aside class="doc-gallery">
+                <div class="gallery-main">
+                    <img id="main-image"
+                        src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop"
+                        alt="Pitch Perfect">
+                </div>
+
+                <div class="gallery-thumbs" id="thumbnail-container">
+                    <!-- Thumbnails will be dynamically generated -->
+                </div>
+            </aside>
+
+            <!-- Event Content (Right) -->
+            <main class="doc-content">
+                <h3>Master the Art of Pitching</h3>
+                <p>
+                    Learn how to craft compelling pitches that capture investor attention. This intensive workshop
+                    covers storytelling techniques, slide design, financial projections, and Q&A handling.
+                </p>
+                <p>
+                    Perfect for founders preparing for funding rounds or anyone looking to improve their presentation
+                    skills in a startup context.
+                </p>
+
+                <h3>What You'll Learn</h3>
+                <ul>
+                    <li>Crafting a compelling narrative for your startup story</li>
+                    <li>Designing impactful pitch decks that resonate</li>
+                    <li>Presenting financial projections with confidence</li>
+                    <li>Handling tough questions from investors</li>
+                    <li>Body language and delivery techniques</li>
+                </ul>
+
+                <h3>Who Should Attend</h3>
+                <p>
+                    This event is ideal for early-stage founders, aspiring entrepreneurs, and anyone looking to
+                    refine their pitching skills. Whether you're preparing for your first investor meeting or
+                    looking to improve your presentation game, this workshop will provide actionable insights.
+                </p>
+
+                <h3>Event Details</h3>
+                <p>
+                    <strong>Date:</strong> 15 January 2025<br>
+                    <strong>Time:</strong> 2:00 PM - 5:00 PM<br>
+                    <strong>Venue:</strong> MET Institute of Technology, Nashik<br>
+                    <strong>Registration:</strong> Free for students
+                </p>
+            </main>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="gallery-modal" id="event-lightbox">
+        <button class="modal-close" id="lightbox-close">&times;</button>
+        <button class="modal-prev" id="lightbox-prev">&#10094;</button>
+        <div class="modal-img-container">
+            <img src="" alt="Event Image" id="lightbox-img">
+        </div>
+        <button class="modal-next" id="lightbox-next">&#10095;</button>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Load Components -->
+    <script>
+        // Load Navbar
+        fetch('../components/navbar.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+
+                // Initialize mobile menu after navbar loads
+                const hamburgerBtn = document.querySelector('.hamburger-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+                const closeBtn = document.getElementById('mobile-menu-close');
+                const links = document.querySelectorAll('.mobile-nav-link');
+
+                if (hamburgerBtn) hamburgerBtn.addEventListener('click', () => {
+                    hamburgerBtn.classList.toggle('active');
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                if (closeBtn) closeBtn.addEventListener('click', () => {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+
+                if (mobileMenu) mobileMenu.addEventListener('click', (e) => {
+                    if (e.target === mobileMenu) {
+                        hamburgerBtn.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                });
+
+                links.forEach(link => link.addEventListener('click', () => {
+                    hamburgerBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }));
+            });
+
+        // Load Footer
+        fetch('../components/footer.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+    </script>
+
+    <!-- Event-specific Data and Gallery -->
+    <script src="../data/eventsData.js"></script>
+    <script>
+        // Find current event data
+        const currentEvent = eventsData.find(e => e.id === 'pitch-perfect');
+
+        if (currentEvent) {
+            // Generate thumbnails
+            const thumbContainer = document.getElementById('thumbnail-container');
+            currentEvent.images.forEach((img, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'thumb-item' + (index === 0 ? ' active' : '');
+                thumb.innerHTML = `<img src="${img}" alt="Image ${index + 1}">`;
+                thumb.addEventListener('click', () => {
+                    document.getElementById('main-image').src = img;
+                    document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+                thumbContainer.appendChild(thumb);
+            });
+
+            // Lightbox functionality
+            let currentImageIndex = 0;
+            const lightbox = document.getElementById('event-lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+
+            function openLightbox(index) {
+                currentImageIndex = index;
+                lightboxImg.src = currentEvent.images[index];
+                lightbox.style.display = 'flex';
+                lightbox.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('open');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                }, 300);
+                document.body.style.overflow = '';
+            }
+
+            function navigateLightbox(direction) {
+                currentImageIndex += direction;
+                if (currentImageIndex < 0) currentImageIndex = currentEvent.images.length - 1;
+                if (currentImageIndex >= currentEvent.images.length) currentImageIndex = 0;
+                lightboxImg.src = currentEvent.images[currentImageIndex];
+            }
+
+            // Open lightbox on main image click
+            document.getElementById('main-image').addEventListener('click', () => openLightbox(0));
+
+            // Lightbox controls
+            document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox-prev').addEventListener('click', () => navigateLightbox(-1));
+            document.getElementById('lightbox-next').addEventListener('click', () => navigateLightbox(1));
+
+            // Close on background click
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (lightbox.style.display === 'flex') {
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+                    if (e.key === 'ArrowRight') navigateLightbox(1);
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
